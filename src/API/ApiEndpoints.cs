@@ -10,6 +10,9 @@ public static class ApiEndpoints
 
         public const string GetAll = Base;
         public const string Get = $"{Base}/{{productId:int}}";
+
+        public const string GetBrands = $"{Base}/brands";
+        public const string GetTypes = $"{Base}/types";
     }
 
 }

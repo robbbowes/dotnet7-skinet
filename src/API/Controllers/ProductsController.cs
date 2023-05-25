@@ -17,14 +17,26 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet(ApiEndpoints.Products.GetAll)]
-    public async Task<ActionResult<List<Product>>> GetAll()
+    public async Task<ActionResult<List<Product>>> GetAllProducts()
     {
         return Ok(await _repo.GetProductsAsync());
     }
 
     [HttpGet(ApiEndpoints.Products.Get)]
-    public async Task<ActionResult<Product>> Get(int productId)
+    public async Task<ActionResult<Product>> GetProductById(int productId)
     {
         return await _repo.GetProductByIdAsync(productId);
+    }
+
+    [HttpGet(ApiEndpoints.Products.GetBrands)]
+    public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
+    {
+        return Ok(await _repo.GetProductBrandsAsync());
+    }
+
+    [HttpGet(ApiEndpoints.Products.GetTypes)]
+    public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
+    {
+        return Ok(await _repo.GetProductTypesAsync());
     }
 }
